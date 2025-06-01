@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francisco José | Especialista Florestal & Desenvolvedor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#047857',  // Emerald green
+                        dark: '#111827',     // Dark slate
+                        secondary: '#1F2937',
+                        accent: '#10B981',   // Lighter emerald
+                        light: '#E5E7EB',
+                        wood: '#78350F',     // Wood tone
+                        tech: '#3B82F6'      // Tech blue
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { boxShadow: '0 0 0 0 rgba(16, 185, 129, 0.7)' },
+                            '50%': { boxShadow: '0 0 20px 10px rgba(16, 185, 129, 0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom animations */
+        @keyframes slideIn {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .animate-slide-in {
+            animation: slideIn 0.8s ease-out forwards;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #10B981, #047857);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .glass-card {
+            background: rgba(31, 41, 55, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #10B981;
+            border: 3px solid #111827;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #10B981, transparent);
+        }
+        
+        .dual-badge {
+            background: linear-gradient(90deg, #10B981 50%, #3B82F6 50%);
+        }
+        
+        .wood-badge {
+            background-color: #78350F;
+        }
+        
+        .tech-badge {
+            background-color: #3B82F6;
+        }
+    </style>
+</head>
+<body class="bg-dark text-light font-sans min-h-screen flex justify-center items-start p-4 md:p-8">
+    <div class="w-full max-w-5xl space-y-8">
+        <div class="glass-card rounded-xl p-8 md:p-10 hover-scale relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-20"></div>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="w-36 h-36 md:w-44 md:h-44 rounded-full border-4 border-accent overflow-hidden animate-float">
+                    <img src="minha_foto.jpg" 
+                             alt="Francisco Jose" 
+                             class="w-full h-full object-cover">
+                </div>
+                
+                <div class="flex-1 text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full text-xs font-semibold dual-badge text-white">
+                        <span class="flex items-center"><i class="fas fa-tree mr-1"></i> Florestal</span>
+                        <span class="flex items-center"><i class="fas fa-code ml-1 mr-1"></i> Tecnologia</span>
+                    </div>
+                    
+                    <h1 class="text-3xl md:text-4xl font-bold mb-2">
+                        Francisco José
+					 <p class="text-lg md:text-xl text-accent mb-6">
+                        Ventania
+                    </p>	
+                    </h1>
+                    
+                    <p class="text-lg md:text-xl text-accent mb-6">
+                        Romaneador & Classificador de madeiras
+                    </p>
+                    
+                    <div class="flex flex-wrap justify-center md:justify-start gap-3">
+                        <a href="#" id="goToAplicativosBtn" 
+                           class="px-5 py-2.5 bg-accent hover:bg-primary text-dark font-medium rounded-lg transition-all duration-300 shadow hover:shadow-lg">
+                            <i class="fas fa-code mr-2"></i> Projetos Tech
+                        </a>
+                        <!--<a href="#" id="goToContatoBtn"
+                           class="px-5 py-2.5 border border-accent text-accent hover:bg-accent/10 font-medium rounded-lg transition-all duration-300">
+                            <i class="fas fa-envelope mr-2"></i> Contato
+                        </a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card rounded-xl p-8 md:p-10 hover-scale">
+            <div class="flex items-start gap-6">
+                <div class="bg-accent/10 p-4 rounded-xl text-accent text-2xl">
+                    <i class="fas fa-route"></i>
+                </div>
+                <div class="flex-1">
+                    <h2 class="text-2xl md:text-3xl font-bold text-accent mb-6">Trajetória Profissional</h2>
+                    
+                    <div class="relative pl-8 timeline">
+                        <div class="pb-8 timeline-item relative">
+                            <div class="bg-secondary/50 rounded-lg p-5">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <span class="font-semibold text-accent">1997 - Início da Jornada</span>
+                                    <span class="text-xs px-2 py-1 rounded-full wood-badge text-white">Florestal</span>
+                                </div>
+                                <p class="text-light/80">
+                                    Nascido em Altamira-PA, em 1979, iniciei minha trajetória no setor florestal em 1997. 
+                                    Desde cedo, enfrentei desafios significativos ao conciliar o trabalho como ajudante de produção
+									em serrarias com os estudos, concluindo o ensino médio em 1998.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="pb-8 timeline-item relative">
+                            <div class="bg-secondary/50 rounded-lg p-5">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <span class="font-semibold text-accent">2000 - Especialização</span>
+                                    <span class="text-xs px-2 py-1 rounded-full wood-badge text-white">Florestal</span>
+                                </div>
+                                <p class="text-light/80">
+                                    Desenvolvi expertise como romaneador e classificador de madeira na Madeireira Sama, 
+                                    adquirindo conhecimento prático em espécies madeireiras e processos industriais.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="pb-8 timeline-item relative">
+                            <div class="bg-secondary/50 rounded-lg p-5">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <span class="font-semibold text-accent">2010 - Gestão</span>
+                                    <span class="text-xs px-2 py-1 rounded-full wood-badge text-white">Florestal</span>
+                                </div>
+                                <p class="text-light/80">
+                                    Com o conhecimento em Excel e VBA, consegui aumentar a eficiência operacional  nas empresas onde atuei ao longo da Transamazônica.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="pb-8 timeline-item relative">
+                            <div class="bg-secondary/50 rounded-lg p-5">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <span class="font-semibold text-accent">2023 - Transição</span>
+                                    <span class="text-xs px-2 py-1 rounded-full tech-badge text-white">Tecnologia</span>
+                                </div>
+                                <p class="text-light/80">
+                                    Iniciei minha transição para a área de tecnologia, cursando Análise e Desenvolvimento 
+                                    de Sistemas, com foco em aplicações para o setor florestal.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item relative">
+                            <div class="bg-secondary/50 rounded-lg p-5">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <span class="font-semibold text-accent">Atual - Integração</span>
+                                    <span class="text-xs px-2 py-1 rounded-full dual-badge text-white">Florestal + Tech</span>
+                                </div>
+                                <p class="text-light/80">
+                                    Atuo dentro da serraria como romaneador, enquanto desenvolvo soluções tecnológicas para 
+                                    otimizar processos na cadeia produtiva madeireira.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="glass-card rounded-xl p-6 hover-scale">
+                <div class="flex items-start gap-4">
+                    <div class="bg-accent/10 p-3 rounded-lg text-accent text-xl">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h2 class="text-xl font-bold text-accent mb-4">Expertise Florestal</h2>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <div class="bg-accent/10 p-1.5 rounded-lg text-accent mt-0.5">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                                <span class="flex-1 text-light/90">
+                                    <strong>Classificação de madeiras:</strong> Identificação e categorização de espécies
+                                </span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="bg-accent/10 p-1.5 rounded-lg text-accent mt-0.5">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                                <span class="flex-1 text-light/90">
+                                    <strong>Romaneamento:</strong> Controle de produção e estoque
+                                </span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="bg-accent/10 p-1.5 rounded-lg text-accent mt-0.5">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                                <span class="flex-1 text-light/90">
+                                    <strong>Gestão de equipes:</strong> Liderança de até 15 colaboradores
+                                </span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="bg-accent/10 p-1.5 rounded-lg text-accent mt-0.5">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                                <span class="flex-1 text-light/90">
+                                    <strong>Processos industriais:</strong> Conhecimento profundo de serrarias
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-xl p-6 hover-scale">
+                <div class="flex items-start gap-4">
+                    <div class="bg-tech/10 p-3 rounded-lg text-tech text-xl">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h2 class="text-xl font-bold text-tech mb-4">Habilidades Tecnológicas</h2>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <div class="bg-tech/10 p-1.5 rounded-lg text-tech mt-0.5">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                                <span class="flex-1 text-light/90">
+                                    <strong>Excel & VBA:</strong> Automação de processos 
+                                </span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="bg-tech/10 p-1.5 rounded-lg text-tech mt-0.5">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                                <span class="flex-1 text-light/90">
+                                    <strong>Desenvolvimento Web:</strong>Atualmente em aprendizado com foco em: HTML, CSS, JavaScript básico
+                                </span>
+                            </li>
+                            <!--<li class="flex items-start gap-3">
+                                <div class="bg-tech/10 p-1.5 rounded-lg text-tech mt-0.5">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                                <!--<span class="flex-1 text-light/90">
+                                    <strong>Geoprocessamento:</strong> QGIS e sistemas de georreferenciamento
+                                </span>
+                            </li>-->
+                            <!--<li class="flex items-start gap-3">
+                                <div class="bg-tech/10 p-1.5 rounded-lg text-tech mt-0.5">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                                <span class="flex-1 text-light/90">
+                                    <strong>Análise de dados:</strong> Transformação de dados brutos em insights
+                                </span>
+                            </li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card rounded-xl p-8 hover-scale">
+            <div class="flex items-start gap-6">
+                <div class="bg-accent/10 p-4 rounded-xl text-accent text-2xl">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <div class="flex-1">
+                    <h2 class="text-2xl font-bold text-accent mb-6">Atuação Atual</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-secondary/50 rounded-lg p-5 border-l-4 border-wood">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="bg-wood/10 p-2 rounded-lg text-wood">
+                                    <i class="fas fa-tree"></i>
+                                </div>
+                                <h3 class="font-semibold text-lg">Manejo Florestal Sustentável</h3>
+                            </div>
+                            <p class="text-light/80 mb-4">
+                                Colaboração em projetos de manejo florestal e serragem de madeira bruta para exportação, 
+                                com atuação nas regiões de Vitória do Xingu e Altamira.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-wood/10 text-wood rounded-full text-xs">Espécies Nativas</span>
+                                <span class="px-2 py-1 bg-wood/10 text-wood rounded-full text-xs">Certificação</span>
+                                <span class="px-2 py-1 bg-wood/10 text-wood rounded-full text-xs">Exportação</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-secondary/50 rounded-lg p-5 border-l-4 border-tech">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="bg-tech/10 p-2 rounded-lg text-tech">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h3 class="font-semibold text-lg">Soluções Tecnológicas</h3>
+                            </div>
+                            <p class="text-light/80 mb-4">
+                                Desenvolvimento de aplicativos e planilhas inteligentes para otimizar processos no setor 
+                                florestal, integrando conhecimento prático com tecnologia.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-tech/10 text-tech rounded-full text-xs">Excel VBA</span>
+                                <span class="px-2 py-1 bg-tech/10 text-tech rounded-full text-xs">Web Apps</span>
+                                <span class="px-2 py-1 bg-tech/10 text-tech rounded-full text-xs">Automação</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card rounded-xl p-8 hover-scale">
+            <div class="flex items-start gap-6">
+                <div class="bg-accent/10 p-4 rounded-xl text-accent text-2xl">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="flex-1">
+                    <h2 class="text-2xl font-bold text-accent mb-6">Formação Acadêmica</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-secondary/50 rounded-lg p-5">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="bg-tech/10 p-2 rounded-lg text-tech">
+                                    <i class="fas fa-laptop"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">Análise e Desenvolvimento de Sistemas</h3>
+                                    <p class="text-xs text-light/60">Cursando - Previsão de conclusão: 2026</p>
+                                </div>
+                            </div>
+                            <p class="text-light/80 text-sm">
+                                Formação focada em desenvolvimento de software, banco de dados e análise de sistemas, 
+                                com aplicações práticas no setor florestal.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-secondary/50 rounded-lg p-5">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="bg-wood/10 p-2 rounded-lg text-wood">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <h3 class="font-semibold">Certificações Relevantes</h3>
+                            </div>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3">
+                                    <div class="bg-accent/10 p-1 rounded-full text-accent">
+                                        <i class="fas fa-angle-right text-xs"></i>
+                                    </div>
+                                    <div>
+                                        <span class="text-light/80">Técnico em Geoprocessamento</span>
+                                        <p class="text-xs text-light/60">IFPA - 2022</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <div class="bg-accent/10 p-1 rounded-full text-accent">
+                                        <i class="fas fa-angle-right text-xs"></i>
+                                    </div>
+                                    <div>
+                                        <span class="text-light/80">Excel Avançado com VBA</span>
+                                        <p class="text-xs text-light/60">UDEMY </p>
+                                    </div>
+                                </li>
+                                <!--<li class="flex items-center gap-3">
+                                    <div class="bg-accent/10 p-1 rounded-full text-accent">
+                                        <i class="fas fa-angle-right text-xs"></i>
+                                    </div>
+                                    <!--<div>
+                                        <span class="text-light/80">Gestão Florestal Sustentável</span>
+                                        <p class="text-xs text-light/60">SENAR - 2018</p>
+                                    </div>
+                                </li>-->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card rounded-xl p-6 hover-scale">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-secondary/50 p-5 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-accent mb-1">28+</div>
+                    <div class="text-light/60 text-sm">Anos no Setor Florestal</div>
+                </div>
+                <div class="bg-secondary/50 p-5 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-tech mb-1">5</div>
+                    <div class="text-light/60 text-sm">Anos em Tecnologia</div>
+                </div>
+                <div class="bg-secondary/50 p-5 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-accent mb-1">Experiêcia</div>
+                    <div class="text-light/60 text-sm">Comprovada e sólida</div>
+                </div>
+                <div class="bg-secondary/50 p-5 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-tech mb-1">01</div>
+                    <div class="text-light/60 text-sm">Aplicativos Desenvolvidos</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card rounded-xl p-8 hover-scale">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                    <h2 class="text-xl font-bold text-accent mb-2">"Conectando a floresta com a tecnologia."</h2>
+                    <p class="text-light/80">&copy; 2025 Francisco José - Setor Produtivo Florestal</p>
+                </div>
+                <div class="flex flex-wrap gap-3">
+                    <a href="https://www.facebook.com/profile.php?id=100093255643114" class="px-5 py-2.5 bg-accent hover:bg-primary text-dark font-medium rounded-lg flex items-center" target="_blank">
+                        <i class="fab fa-facebook mr-2"></i> Facebook
+                    </a>
+                    <a href="https://wa.me/5593991394918" class="px-5 py-2.5 border border-accent text-accent hover:bg-accent/10 font-medium rounded-lg flex items-center" target="_blank">
+                        <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                    </a>
+                    <a href="https://www.linkedin.com/in/francisco-josé-702065229" class="px-5 py-2.5 border border-tech text-tech hover:bg-tech/10 font-medium rounded-lg flex items-center" target="_blank">
+                        <i class="fab fa-linkedin mr-2"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add hover effect to all cards
+            const cards = document.querySelectorAll('.glass-card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    card.style.setProperty('--mouse-x', `${x / rect.width * 100}%`);
+                    card.style.setProperty('--mouse-y', `${y / rect.height * 100}%`);
+                });
+            });
+            
+            // Button functionality
+            document.getElementById('goToAplicativosBtn').addEventListener('click', (e) => {
+                e.preventDefault();
+                window.parent.postMessage({ action: 'goToAplicativos' }, window.location.origin);
+            });
+
+            document.getElementById('goToContatoBtn').addEventListener('click', (e) => {
+                e.preventDefault();
+                window.parent.postMessage({ action: 'goToContato' }, window.location.origin);
+            });
+        });
+    </script>
+</body>
+</html>
